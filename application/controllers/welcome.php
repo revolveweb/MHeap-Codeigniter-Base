@@ -1,15 +1,15 @@
 <?php
 
-class Welcome extends Controller {
+class Welcome extends MY_Controller {
 
 	function Welcome()
 	{
-		parent::Controller();	
+		parent::__construct();	
 	}
 	
 	function index()
 	{
-		$this->load->view('welcome_message');
+		$this->partial->register('welcome_message');
 	}
 }
 
