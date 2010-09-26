@@ -1,6 +1,6 @@
 <?php
 
-function MY_Model extends Model(){
+class MY_Model extends Model {
 
 	function get_all($__table){
 		return $this->db->get($__table)->result();
