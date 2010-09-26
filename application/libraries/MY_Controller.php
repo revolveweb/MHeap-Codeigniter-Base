@@ -21,7 +21,10 @@ class MY_Controller extends Controller{
 			, 'method' => $this->router->method
 			, 'type' => 'Abstract'
 		);	
-		
+
+		if (file_exists( APPPATH.'/views/'.$this->data['page']['controller'].'/'.$this->data['page']['method'] )){
+			$this->partial->register($this->data['page']['controller'].'/'.$this->data['page']['method']);
+		}
 	}
 
 	function _output(){

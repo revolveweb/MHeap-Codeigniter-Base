@@ -15,7 +15,7 @@ $config['base_url']	= "http://mycodeigniter.dev/";
 
 /*
 |--------------------------------------------------------------------------
-| Index File
+| ` File
 |--------------------------------------------------------------------------
 |
 | Typically this will be your index.php file, unless you've renamed it to
@@ -23,7 +23,7 @@ $config['base_url']	= "http://mycodeigniter.dev/";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = "index.php";
+$config['index_page'] = "";
 
 /*
 |--------------------------------------------------------------------------

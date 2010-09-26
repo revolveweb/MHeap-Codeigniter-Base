@@ -27,5 +27,8 @@
 
     </header>
     
+	<div id="message-box">
+	<?php echo $this->message->display(); ?>	
+	</div>
     <div id="main">
 

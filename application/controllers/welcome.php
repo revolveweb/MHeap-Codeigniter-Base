@@ -1,6 +1,6 @@
 <?php
 
-class Welcome extends Public_Controller {
+class Welcome extends Admin_Controller {
 
 	function Welcome()
 	{
