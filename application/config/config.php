@@ -327,3 +327,12 @@ $config['proxy_ips'] = '';
 
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
+
+
+// Some autoload magic
+function __autoload($__c){
+
+	if (stristr($__c, 'controller')){
+		require_once($_SERVER['DOCUMENT_ROOT'].'/'.APPPATH.'/libraries/base_controllers/'.strtolower($__c).'.php');
+	}
+}

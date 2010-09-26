@@ -13,8 +13,14 @@ class MY_Controller extends Controller{
 			$this->partial->footer('layout/footer');
 			define("IS_AJAX", false);
 		}else{
-			define("IS_AJAX", true);
+			define("IS_AJAX", true); 
 		}
+
+		$this->data['page'] = array(
+			  'controller' => $this->router->class
+			, 'method' => $this->router->method
+			, 'type' => 'Abstract'
+		);	
 		
 	}
 
