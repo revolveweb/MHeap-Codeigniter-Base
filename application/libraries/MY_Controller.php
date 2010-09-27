@@ -26,9 +26,13 @@ class MY_Controller extends Controller{
 			, 'type' => 'Abstract'
 		);	
 
-		if (file_exists( APPPATH.'/views/'.$this->data['page']['controller'].'/'.$this->data['page']['method'] )){
+		if (file_exists( $_SERVER['DOCUMENT_ROOT'].'/'.APPPATH.'/views/'.$this->data['page']['controller'].'/'.$this->data['page']['method'].'.php' )){
 			$this->partial->register($this->data['page']['controller'].'/'.$this->data['page']['method']);
 		}
+
+		$this->data['user_lang'] = $this->config->item('language');
+		//$this->lang->load('site', $this->data['user_lang']);		
+		$this->lang->load($this->data['page']['controller'], $this->data['user_lang']);
 	}
 
 	function _output(){

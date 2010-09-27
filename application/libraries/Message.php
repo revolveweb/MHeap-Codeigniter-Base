@@ -67,6 +67,14 @@ class CI_Message {
 		}
 	}
 
+
+	function setn($newdata, $newvalue)
+	{
+		foreach ( explode("\n", $newvalue) as $line ){
+			$this->set($newdata, $line);
+		} 
+	}	
+
 	/**
 	 * Add data to the "message" array
 	 *
