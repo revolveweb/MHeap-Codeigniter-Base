@@ -36,6 +36,10 @@ class MY_Controller extends Controller{
 	}
 
 	function _output(){
+
+		// Register any ion_auth messages as normal messages
+		$this->message->setn('notice', $this->ion_auth->messages());
+		$this->message->setn('error', $this->ion_auth->errors());
 		echo $this->partial->outputPage();
 	}
 

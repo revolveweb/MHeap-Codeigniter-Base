@@ -49,4 +49,34 @@ class auth extends Public_Controller {
 		redirect('/');
 	}
 
+	function forgotten_password($__code = null){
+
+		$this->data['code'] = $__code;
+
+		if ( $this->input->post('reset_finish') ){
+			$this->ion_auth->forgotten_password_complete( $this->input->post('reset_code') );
+		}
+
+		if ( $this->input->post('reset_submit') ){
+			$this->ion_auth->forgotten_password( $this->input->post('user_email') );
+		}
+
+	}
+
+	function register(){
+		if ( $this->input->post('reg_username') ){
+			$this->load->library('form_validation');
+			if ( $this->form_validation->run() !== false ){
+				$reg = $this->ion_auth->register(
+					$this->input->post('reg_username'), 
+					$this->input->post('reg_password'), 
+					$this->input->post('reg_email'),	
+					array()
+				      );
+			}else{
+				$this->message->setn( 'error', validation_errors() );
+			}
+		}
+	}
+
 }

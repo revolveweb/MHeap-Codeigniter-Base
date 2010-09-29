@@ -132,22 +132,22 @@
 	/**
 	 * Message Start Delimiter
 	 **/
-	$config['message_start_delimiter'] = '<p>';
+	$config['message_start_delimiter'] = '';
 	
 	/**
 	 * Message End Delimiter
 	 **/
-	$config['message_end_delimiter'] = '</p>';
+	$config['message_end_delimiter'] = "\n";
 	
 	/**
 	 * Error Start Delimiter
 	 **/
-	$config['error_start_delimiter'] = '<p>';
+	$config['error_start_delimiter'] = '';
 	
 	/**
 	 * Error End Delimiter
 	 **/
-	$config['error_end_delimiter'] = '</p>';
+	$config['error_end_delimiter'] = "\n";
 	
 /* End of file ion_auth.php */
 /* Location: ./system/application/config/ion_auth.php */
