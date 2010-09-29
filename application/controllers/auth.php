@@ -16,7 +16,7 @@ class auth extends Public_Controller {
 
 			// Let's validate. Rules are set in the config			
 			$this->load->library('form_validation');
-			if ( $this->form_validation->run() === false ){
+			if ( $this->form_validation->run() !== false ){
 				// We passed all the validation, so let's try and log them in
 				if ( $this->ion_auth->login(
 					$this->input->post('login_email'),

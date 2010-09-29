@@ -71,6 +71,7 @@ class CI_Message {
 	function setn($newdata, $newvalue)
 	{
 		foreach ( explode("\n", $newvalue) as $line ){
+			if ($line == ''){ continue; }
 			$this->set($newdata, $line);
 		} 
 	}	
