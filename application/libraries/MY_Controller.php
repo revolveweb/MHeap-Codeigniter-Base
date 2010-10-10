@@ -10,6 +10,7 @@ class MY_Controller extends Controller{
 		parse_str($_qs, $_GET);
 
 		$this->data = array();
+		$this->load->language('common');
 
 		if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']))
 		{

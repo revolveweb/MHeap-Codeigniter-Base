@@ -2,36 +2,45 @@
 
 class MY_Model extends Model {
 
-	function get_all($__table){
-		return $this->db->get($__table)->result();
+	private $_table_name = '';
+
+	function set_table($__table){
+		$this->_table_name = $__table;
 	}
 
-	function get_one($__table, $__criteria){
-		return $this->db->get_where($__table, $__criteria)->row();
+	function get_all($__fields = null){
+		if ( !is_null( $__fields ) ) { $this->db->select($__fields); }
+		return $this->db->get($this->_table_name)->result();
 	}
 
-	function get_where($__table, $__criteria){
-		return $this->db->get_where($__table, $__criteria)->result();
+	function get_one($__criteria, $__fields = null){
+		if ( !is_null( $__fields ) ) { $this->db->select($__fields); }
+		return $this->db->get_where($this->_table_name, $__criteria)->row();
 	}
 
-	function update($__table, $__data, $__criteria){
+	function get_where($__criteria, $__fields = null){
+		if ( !is_null( $__fields ) ) { $this->db->select($__fields); }
+		return $this->db->get_where($this->_table_name, $__criteria)->result();
+	}
+
+	function update($__data, $__criteria){
 		$this->db->set($__data)
 			 ->where($__criteria)
-			 ->update($__table);
+			 ->update($this->_table_name);
 
 		return $this->db->affected_rows();
 	}
 
-	function insert($__table, $__data){
+	function insert($__data){
 		$this->db->set($__data)
-			 ->insert($__table);
+			 ->insert($this->_table_name);
 
 		return $this->db->insert_id();
 	}
 
-	function delete($__table, $__criteria){
+	function delete($__criteria){
 		$this->db->where($__criteria)
-			 ->delete($__table);
+			 ->delete($this->_table_name);
 		return $this->db->affected_rows();
 	}
 
